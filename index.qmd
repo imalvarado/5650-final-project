@@ -1,17 +1,17 @@
 ---
-title: "Ruggedness: The Blessing of Bad Geography in Africa"
+title: "Investigating causal factors of fatal shark attacks"
 subtitle: "DSAN 5650: Causal Inference for Computational Social Science"
 authors:
-  - name: Nathan Nunn
+  - name: Ian Alvarado
     affiliation: Georgetown University<br>Data Science and Analytics
     email: nunn@interchange.ubc.ca
-date: 2026-08-10
+date: 7/15/2026
 bibliography: Deconfounding_Project.bib
 csl: chicago-17-no-url.csl
 title-block-banner: "#041e42"
 title-block-banner-color: "#e3e3e5"
 abstract: |
-  There is controversy about whether geography matters mainly because of its contemporaneous impact on economic outcomes or because of its interaction with historical events. Looking at terrain ruggedness, we are able to estimate the importance of these two channels. Because rugged terrain hinders trade and most productive activities, it has a negative direct effect on income. However, in Africa rugged terrain afforded protection to those being raided during the slave trades. Since the slave trades retarded subsequent economic development, in Africa ruggedness also has had a historical indirect positive effect on income. Studying all countries worldwide, we find that both effects are significant statistically and that for Africa the indirect positive effect dominates the direct negative effect. Looking within Africa, we provide evidence that the indirect effect operates through the slave trades. We also show that the slave trades, by encouraging population concentrations in rugged areas, have also amplified the negative direct impact of rugged terrain in Africa.
+  Using the Global Shark Attack File maintained by the Shark Research Institute, this project aims to investigate the causal factors leading to fatal shark attacks. Because the shark attack file only contains data on those who have been attacked, this study will focus on what makes a shark attack lethal. This will be accomplished by constucting a PGM with some of the variables found in the Global Shark Attack File such as location, species, time of day, season, activity, and others. The aim of this project is to identify which factors truly lead to fatal attacks by controlling for each of the factors listed before and considering their interactions to identify a solid model that accurately represents the causal relationships between them.
 ---
 
 ## Introduction {#sec-1}
