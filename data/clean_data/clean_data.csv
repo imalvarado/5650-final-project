@@ -1,13 +1,13 @@
 type,country,state,activity,sex,age,fatal,time,species,year,month
 Unprovoked,bahamas,staniel cay,swimming,m,12.0,N,afternoon,,,6
 Unprovoked,usa,florida,swimming,f,17.0,N,morning,,,6
-Unprovoked,australia,nsw,swimming,f,35.0,N,morning,great white,,6
+Unprovoked,australia,new south wales,swimming,f,35.0,N,morning,great white,,6
 Unprovoked,galapogos islands,santa fe island,swimming,f,,N,afternoon,,,6
 Unprovoked,usa,florida,swimming,,,N,morning,bull,,6
 Unprovoked,australia,western australia,dive fishing,m,35.0,Y,morning,great white,,6
 Unprovoked,brazil,recife,swimming,f,19.0,N,afternoon,tiger,,6
 Unprovoked,brazil,jaboatao dos guarapes,swimming,m,11.0,N,afternoon,bull,,6
-Unprovoked,australia,nsw,surfing/bodyboarding,,20.0,N,evening,bull,,5
+Unprovoked,australia,new south wales,surfing/bodyboarding,,20.0,N,evening,bull,,5
 Unprovoked,usa,hawaii,surfing/bodyboarding,m,38.0,N,morning,,,5
 Unprovoked,australia,queensland,dive fishing,m,39.0,Y,morning,bull,,5
 Unprovoked,hawaii,maui,small watercraft,,,N,,tiger,,5
@@ -15,7 +15,7 @@ Unprovoked,australia,western australia,diving,m,38.0,Y,morning,great white,,5
 Unprovoked,australia,south australia,surfing/bodyboarding,m,16.0,N,,bronze whaler,,4
 Unprovoked,bahamas,andros island,swimming,f,22.0,N,evening,,,3
 Unprovoked,australia,south australia,diving,m,,N,,great white,,3
-Unprovoked,australia,nsw,surfing/bodyboarding,m,,N,,,,3
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,,N,,,,3
 Unprovoked,usa,california,surfing/bodyboarding,m,39.0,N,evening,great white,,3
 Unprovoked,australia,western australia,swimming,f,,N,morning,,,3
 Unprovoked,australia,western australia,SUP/foiling,m,,N,morning,great white,,3
@@ -23,22 +23,22 @@ Unprovoked,australia,queensland,swimming,,,N,morning,,,3
 Unprovoked,new caledonia,noumea,SUP/foiling,m,55.0,Y,,tiger,,2
 Unprovoked,cayman islands,little cayman island,diving,m,,N,,tiger,,2
 Unprovoked,brazil,recife,swimming,m,13.0,Y,,tiger,,1
-Unprovoked,australia,nsw,surfing/bodyboarding,m,,N,morning,,,1
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,,N,morning,,,1
 Unprovoked,australia,tasmania,swimming,f,,N,evening,sevengill,,1
-Unprovoked,australia,nsw,surfing/bodyboarding,m,39.0,N,morning,bull,,1
-Unprovoked,australia,nsw,surfing/bodyboarding,m,11.0,N,morning,bull,,1
-Unprovoked,australia,nsw,surfing/bodyboarding,m,27.0,N,evening,,,1
-Unprovoked,australia,nsw,swimming,m,12.0,Y,afternoon,bull,,1
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,39.0,N,morning,bull,,1
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,11.0,N,morning,bull,,1
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,27.0,N,evening,,,1
+Unprovoked,australia,new south wales,swimming,m,12.0,Y,afternoon,bull,,1
 Unprovoked,usa,california,surfing/bodyboarding,m,26.0,N,morning,great white,,1
-Unprovoked,australia,nsw,surfing/bodyboarding,m,,N,morning,,,1
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,,N,morning,,,1
 Unprovoked,us virgin islands,fredricksted island st croix,swimming,f,56.0,Y,afternoon,,,1
 Unprovoked,mozambique,inhambe province,diving,m,,Y,,,,1
 Unprovoked,mozambique,inhambe province,,,,Y,,,,12
 Unprovoked,australia,western australia,diving,m,,N,,great white,,12
 Unprovoked,usa,california,swimming,f,55.0,Y,afternoon,great white,,12
 Unprovoked,usa,sonoma county california,surfing/bodyboarding,m,,N,morning,great white,,12
-Unprovoked,australia,nsw,swimming,m,26.0,N,morning,bull,,11
-Unprovoked,australia,nsw,swimming,f,25.0,Y,morning,bull,,11
+Unprovoked,australia,new south wales,swimming,m,26.0,N,morning,bull,,11
+Unprovoked,australia,new south wales,swimming,f,25.0,Y,morning,bull,,11
 Unprovoked,australia,western australia,SUP/foiling,m,61.0,N,evening,great white,,11
 Unprovoked,french polynesia,marquesas islands,swimming,m,40.0,N,,,,11
 Unprovoked,usa,hawaii,swimming,m,,N,afternoon,,,11
@@ -48,12 +48,12 @@ Unprovoked,columbia,"bolivar, del isolate",swimming,m,14.0,N,,nurse,,10
 Unprovoked,australia,queensland,fishing,m,14.0,N,evening,tiger,,10
 Unprovoked,australia,south australia,surfing/bodyboarding,m,,N,afternoon,bronze whaler,,10
 Unprovoked,usa,off california,swimming,m,54.0,N,night,,,9
-Unprovoked,australia,nsw,surfing/bodyboarding,m,57.0,Y,morning,great white,,9
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,57.0,Y,morning,great white,,9
 Unprovoked,usa,florida,swimming,m,8.0,N,afternoon,,,9
 Unprovoked,usa,texas,swimming,f,8.0,N,,,,8
-Unprovoked,australia,nsw,surfing/bodyboarding,m,,N,morning,great white,,8
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,,N,morning,great white,,8
 Unprovoked,bahamas,atlantic ocean near big grand cay,dive fishing,m,63.0,N,afternoon,,,8
-Unprovoked,australia,nsw,surfing/bodyboarding,m,9.0,N,afternoon,great white,,8
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,9.0,N,afternoon,great white,,8
 Unprovoked,puerto rico,carolina,wading,f,39.0,N,,,,8
 Unprovoked,australia,south australia,small watercraft,m,19.0,N,morning,great white,,7
 Unprovoked,french polynesia,nuku hiva,swimming,m,7.0,N,,,,7
@@ -64,7 +64,7 @@ Unprovoked,usa,florida,surfing/bodyboarding,m,18.0,N,morning,,,7
 Unprovoked,bahamas,great abaco islands,dive fishing,m,66.0,N,,bull,,7
 Unprovoked,usa,florida,surfing/bodyboarding,m,40.0,N,afternoon,,,7
 Unprovoked,south africa,kwazulu-natal,fishing,m,37.0,Y,evening,,,7
-Unprovoked,australia,nsw,swimming,m,16.0,N,afternoon,bull,,6
+Unprovoked,australia,new south wales,swimming,m,16.0,N,afternoon,bull,,6
 Unprovoked,usa,long island ny,swimming,f,20.0,N,afternoon,raggedtooth,,6
 Unprovoked,usa,south carolina,swimming,f,,N,afternoon,,,6
 Unprovoked,usa,south carolina,swimming,f,12.0,N,afternoon,,,6
@@ -78,7 +78,7 @@ Unprovoked,israel,hadera,diving,m,45.0,Y,afternoon,dusky,2025,4
 Unprovoked,usa,florida,,m,,N,afternoon,,2025,4
 Unprovoked,australia,wa,swimming,m,,N,afternoon,tiger,2025,3
 Unprovoked,australia,wa,surfing/bodyboarding,m,37.0,Y,afternoon,great white,2025,3
-Unprovoked,australia,nsw,swimming,,56.0,N,afternoon,bull,2025,3
+Unprovoked,australia,new south wales,swimming,,56.0,N,afternoon,bull,2025,3
 Unprovoked,australia,victoria,swimming,m,,N,,,2025,2
 Unprovoked,australia,western australia,small watercraft,f,35.0,N,morning,,2025,2
 Unprovoked,australia,queensland,swimming,m,29.0,N,afternoon,,2025,2
@@ -109,7 +109,7 @@ Unprovoked,honduras,trujillo colon,fishing,m,33.0,N,,bull,2024,9
 Unprovoked,morocco,southern morocco,swimming,f,30.0,Y,afternoon,great white,2024,9
 Unprovoked,jamaica,montego bay,dive fishing,m,16.0,Y,,tiger,2024,8
 Unprovoked,belize,gulf of honduras,diving,f,15.0,N,morning,reef,2024,8
-Unprovoked,australia,nsw,surfing/bodyboarding,m,23.0,N,morning,great white,2024,7
+Unprovoked,australia,new south wales,surfing/bodyboarding,m,23.0,N,morning,great white,2024,7
 Unprovoked,australia,western australia,surfing/bodyboarding,m,41.0,N,evening,,2024,7
 Unprovoked,usa,florida,diving,m,14.0,N,morning,blacktip,2024,7
 Unprovoked,australia,western australia,dive fishing,m,43.0,N,morning,,2024,7
