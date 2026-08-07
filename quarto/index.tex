@@ -1,5 +1,4 @@
 % Options for packages loaded elsewhere
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -8,22 +7,21 @@
   letterpaper,
   DIV=11,
   numbers=noendperiod]{scrartcl}
-\usepackage{xcolor}
+
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -41,6 +39,9 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -66,8 +67,8 @@
 \makeatother
 
 
-\usepackage{longtable,booktabs,array}
-\newcounter{none} % for unnumbered tables
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -79,21 +80,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
+\makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
-
 % definitions for citeproc citations
 \NewDocumentCommand\citeproctext{}{}
 \NewDocumentCommand\citeproc{mm}{%
@@ -127,18 +124,6 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
- 
-
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
@@ -182,11 +167,15 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Ruggedness: The Blessing of Bad Geography in Africa},
+  pdftitle={Investigating causal factors of fatal shark attacks},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -194,8 +183,7 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-
-\title{Ruggedness: The Blessing of Bad Geography in Africa}
+\title{Investigating causal factors of fatal shark attacks}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -203,29 +191,24 @@
 }
 \makeatother
 \subtitle{DSAN 5650: Causal Inference for Computational Social Science}
-\author{Nathan Nunn}
-\date{2026-08-10}
+\author{Ian Alvarado}
+\date{2026-07-15}
+
 \begin{document}
 \maketitle
 \begin{abstract}
-There is controversy about whether geography matters mainly because of
-its contemporaneous impact on economic outcomes or because of its
-interaction with historical events. Looking at terrain ruggedness, we
-are able to estimate the importance of these two channels. Because
-rugged terrain hinders trade and most productive activities, it has a
-negative direct effect on income. However, in Africa rugged terrain
-afforded protection to those being raided during the slave trades. Since
-the slave trades retarded subsequent economic development, in Africa
-ruggedness also has had a historical indirect positive effect on income.
-Studying all countries worldwide, we find that both effects are
-significant statistically and that for Africa the indirect positive
-effect dominates the direct negative effect. Looking within Africa, we
-provide evidence that the indirect effect operates through the slave
-trades. We also show that the slave trades, by encouraging population
-concentrations in rugged areas, have also amplified the negative direct
-impact of rugged terrain in Africa.
+Using the Global Shark Attack File maintained by the Shark Research
+Institute, this project aims to investigate the causal factors leading
+to fatal shark attacks. Because the shark attack file only contains data
+on those who have been attacked, this study will focus on what makes a
+shark attack lethal. This will be accomplished by constucting a PGM with
+some of the variables found in the Global Shark Attack File such as
+location, species, time of day, season, activity, and others. The aim of
+this project is to identify which factors truly lead to fatal attacks by
+controlling for each of the factors listed before and considering their
+interactions to identify a solid model that accurately represents the
+causal relationships between them.
 \end{abstract}
-
 
 \subsection{Introduction}\label{sec-1}
 
@@ -369,7 +352,7 @@ impact of rugged terrain in Africa.
 
 \centering{
 
-\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{index_files/mediabag/images/fig-1.pdf}
+\includegraphics[width=0.6\textwidth,height=\textheight]{index_files/mediabag/images/fig-1.pdf}
 
 }
 
@@ -474,7 +457,7 @@ point is that ruggedness has a direct negative effect on current income
 because it increases the costs of cultivation, building, and trade. This
 relationship can be written
 
-\begin{equation}\protect\phantomsection\label{eq-1}{
+\begin{equation}\phantomsection\label{eq-1}{
 y_i = \kappa_1 − \alpha r_i + \beta q_i + e_i,
 }\end{equation}
 
@@ -491,7 +474,7 @@ that Africa's slave trades adversely affected the political and social
 structures of societies. We capture this effect of Africa's slave trades
 with the following equation
 
-\begin{equation}\protect\phantomsection\label{eq-2}{
+\begin{equation}\phantomsection\label{eq-2}{
 q_i = \begin{cases}
 \kappa_2 - \gamma x_i + u_i &\text{if }i\text{ is in Africa}, \\
 u_i &\text{otherwise},
@@ -505,16 +488,17 @@ Historical accounts show that the number of slaves taken from an area
 was reduced by the ruggedness of the terrain. This relationship is given
 by
 
-\begin{equation}\protect\phantomsection\label{eq-3}{
+\begin{equation}\phantomsection\label{eq-3}{
 x_i = \kappa_3 - \lambda r_i + v_i,
 }\end{equation}
 
 where \(\kappa_2\) and \(\lambda\) are constants (\(\lambda > 0\)), and
 \(v_i\) is an idiosyncratic error.
 
-Substituting (\ref{eq-3}) and (\ref{eq-2}) into (\ref{eq-1}) gives
+Substituting (-Equation~\ref{eq-3}) and (-Equation~\ref{eq-2}) into
+(-Equation~\ref{eq-1}) gives
 
-\begin{equation}\protect\phantomsection\label{eq-4}{
+\begin{equation}\phantomsection\label{eq-4}{
 y_i = \begin{cases}
 \kappa_1 - \alpha r_i + \beta \gamma \lambda r_i + \kappa_4 + \zeta_i + \xi_i &\text{if }i\text{ is in Africa}, \\
 \kappa_1 - \alpha r_i + \zeta_i &\text{otherwise},
@@ -534,7 +518,7 @@ positive indirect effect \(\beta \gamma \lambda\).
 Guided by Equation~\ref{eq-4}, we estimate the following relationship
 between ruggedness and income:
 
-\begin{equation}\protect\phantomsection\label{eq-5}{
+\begin{equation}\phantomsection\label{eq-5}{
 y_i = \beta_0 + \beta_1 r_i + \beta_2 r_i I_i^\text{Africa} + \beta_3 I^\text{Africa} + \varepsilon_i,
 }\end{equation}
 
@@ -544,7 +528,7 @@ Africa and 0 otherwise. In addition, we estimate a restricted version of
 the same equation that forces the ruggedness-income relationship to be
 the same for all countries:
 
-\begin{equation}\protect\phantomsection\label{eq-6}{
+\begin{equation}\phantomsection\label{eq-6}{
 y_i = \beta_4 + \beta_5 r_i + \varepsilon_i.
 }\end{equation}
 
@@ -582,13 +566,14 @@ ruggedness, leaving slave exports in the background. To bring slave
 exports to the foreground and check to what extent they can account for
 the differential effect of ruggedness in Africa, in section 5 we derive
 a different reduced-form equation. Consider again our three equations
-(\ref{eq-1}) to (\ref{eq-3}) that give the relationships between
-ruggedness, slave exports, and income. Previously, we substituted both
-(\ref{eq-3}) and (\ref{eq-2}) into (\ref{eq-1}) to obtain a reduced-form
-relationship between income and ruggedness only, given by (\ref{eq-4}).
-If we instead only substitute (\ref{eq-2}) into (\ref{eq-1}), we obtain
-a reduced-form relationship between income and both ruggedness and slave
-exports:
+(-Equation~\ref{eq-1}) to (-Equation~\ref{eq-3}) that give the
+relationships between ruggedness, slave exports, and income. Previously,
+we substituted both (-Equation~\ref{eq-3}) and (-Equation~\ref{eq-2})
+into (-Equation~\ref{eq-1}) to obtain a reduced-form relationship
+between income and ruggedness only, given by (-Equation~\ref{eq-4}). If
+we instead only substitute (-Equation~\ref{eq-2}) into
+(-Equation~\ref{eq-1}), we obtain a reduced-form relationship between
+income and both ruggedness and slave exports:
 
 \[
 y_i = \begin{cases}
@@ -600,7 +585,7 @@ y_i = \begin{cases}
 We test this relationship by estimating the following equation (note
 that for all non-African countries slave exports are zero, \(x_i = 0\)):
 
-\begin{equation}\protect\phantomsection\label{eq-7}{
+\begin{equation}\phantomsection\label{eq-7}{
 y_i = \beta_6 + \beta_7 r_i + \beta_8 r_i I_i^\text{Africa} + \beta_9 I_i^\text{Africa} + \beta_{10}x_i + \varepsilon_i
 }\end{equation}
 
@@ -635,20 +620,18 @@ identified and should be negative.
 
 As a first step in our empirical analysis, we now estimate the direct
 and indirect effects of ruggedness on income per person. Our baseline
-estimates of equations (\ref{eq-5}) and (\ref{eq-6}) are given in
-Table~\ref{tbl-1}.
-
-{
+estimates of equations (-Equation~\ref{eq-5}) and (-Equation~\ref{eq-6})
+are given in Table~\ref{tbl-1}.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
 
 \caption{\label{tbl-1}The direct and indirect effects of ruggedness}
 
@@ -657,7 +640,7 @@ Table~\ref{tbl-1}.
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} &
-\multicolumn{7}{>{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.8750} + 12\tabcolsep}@{}}{%
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.8750} + 12\tabcolsep}@{}}{%
 \begin{minipage}[b]{\linewidth}\raggedright
 Dependent variable: Log real gdp per person 2000
 \end{minipage}} \\
@@ -707,23 +690,22 @@ Observations & 170 & 170 & 170 & 170 & 170 & 170 & 170 \\
 
 \end{longtable}
 
-}
-
-Looking first at column (1), when we estimate equation (\ref{eq-5}) by
-regressing income per person on ruggedness while allowing for a
-differential effect in African countries, we find empirical confirmation
-for our hypotheses 1 and 2: ruggedness has a direct negative effect on
-income per person, but within Africa, there is an additional positive
-effect. The coefficient for ruggedness is negative and statistically
-significant (i.e., \(\beta_1 < 0\) in equation (\ref{eq-5})), while the
-coefficient for ruggedness interacted with an indicator variable for
-Africa is positive and statistically significant (i.e., β2
-\textgreater{} 0 in equation (5)). According to the estimated
-coefficients, within Africa the indirect positive effect swamps the
-direct negative effect. Adding up the negative direct effect (-0.078)
-and the positive indirect effect (0.156) yields a total effect of
-ruggedness on income in African countries of 0.078. Hence, overall,
-ruggedness has been a blessing for African countries.
+Looking first at column (1), when we estimate equation
+(-Equation~\ref{eq-5}) by regressing income per person on ruggedness
+while allowing for a differential effect in African countries, we find
+empirical confirmation for our hypotheses 1 and 2: ruggedness has a
+direct negative effect on income per person, but within Africa, there is
+an additional positive effect. The coefficient for ruggedness is
+negative and statistically significant (i.e., \(\beta_1 < 0\) in
+equation (-Equation~\ref{eq-5})), while the coefficient for ruggedness
+interacted with an indicator variable for Africa is positive and
+statistically significant (i.e., β2 \textgreater{} 0 in equation (5)).
+According to the estimated coefficients, within Africa the indirect
+positive effect swamps the direct negative effect. Adding up the
+negative direct effect (-0.078) and the positive indirect effect (0.156)
+yields a total effect of ruggedness on income in African countries of
+0.078. Hence, overall, ruggedness has been a blessing for African
+countries.
 
 In terms of magnitude, within Africa, a one standard deviation increase
 in ruggedness increases log real gdp per person by .26 standard
@@ -744,8 +726,8 @@ countries. Consistent with hypothesis 3 that the negative direct effect
 of ruggedness is biased upwards towards zero when the positive effect of
 ruggedness in Africa is not taken into account, the estimated
 coefficient of ruggedness in column (2) is greater than the coefficient
-in column (1) (i.e., \(\beta_5\) in equation (\ref{eq-6}) is greater
-than \(\beta_1\) in equation (\ref{eq-5})).
+in column (1) (i.e., \(\beta_5\) in equation (-Equation~\ref{eq-6}) is
+greater than \(\beta_1\) in equation (-Equation~\ref{eq-5})).
 
 \subsubsection{Robustness with respect to omitted geographical
 variables}\label{robustness-with-respect-to-omitted-geographical-variables}
@@ -885,12 +867,12 @@ columns (7) and (8). The estimates confirm the impression given by the
 figures. There is a positive and significant differential effect of
 ruggedness within Africa.
 
-\protect\phantomsection\label{cell-fig-3}
+\phantomsection\label{cell-fig-3}
 \begin{figure}[H]
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/mediabag/index_files/figure-pdf/fig-3-1.pdf}}
+\includegraphics{index_files/mediabag/index_files/figure-pdf/fig-3-1.pdf}
 
 }
 
@@ -902,7 +884,7 @@ countries!}
 \end{figure}%
 
 \textsubscript{Source:
-\href{https://jpowerj.github.io/dsan5650-project-deconfounding/index.qmd.html}{Article
+\href{https://imalvarado.github.io/5650-final-project/index.qmd.html}{Article
 Notebook}}
 
 \subsubsection{Is the effect of ruggedness also different for other
@@ -974,9 +956,10 @@ this differential effect. We do this in two steps. First, we show that
 there were fewer slaves exported from more rugged areas, even after we
 control for initial population density and other potential geographic
 determinants of slave exports. This involves estimating equation
-(\ref{eq-3}) from Section~\ref{sec-3}. Second, we estimate equation
-(\ref{eq-7}) from Section~\ref{sec-3} to show that slave exports can
-fully account for the differential effect of ruggedness in Africa.
+(-Equation~\ref{eq-3}) from Section~\ref{sec-3}. Second, we estimate
+equation (-Equation~\ref{eq-7}) from Section~\ref{sec-3} to show that
+slave exports can fully account for the differential effect of
+ruggedness in Africa.
 
 We use data from Nunn (2008) on the number of slaves exported from each
 country in Africa between 1400 and 1900 during Africa's four slave
@@ -1020,10 +1003,10 @@ slave trades.
 Having shown that ruggedness has a differential effect in Africa and
 that ruggedness deterred slave exports, we now check to what extent
 slave exports can account for Africa's differential effect. We do this
-by estimating equation (\ref{eq-7}) from Section~\ref{sec-3}, with
-results reported in table 5. Column (1) reproduces, for comparison, our
-estimates of equation (5), which does not control for slave exports. In
-columns (2), we estimate equation (7), which is identical to equation
+by estimating equation (-Equation~\ref{eq-7}) from Section~\ref{sec-3},
+with results reported in table 5. Column (1) reproduces, for comparison,
+our estimates of equation (5), which does not control for slave exports.
+In columns (2), we estimate equation (7), which is identical to equation
 (5), except that slave exports are also included in the estimating
 equation. Columns (3) and (4) report the same estimations as (1) and (2)
 respectively with the same controls used in Section~\ref{sec-4}. With or
@@ -1093,7 +1076,7 @@ threat of slave raids with the availability of areas with varying
 ruggedness created past population movements that have persisted until
 today. In particular, we estimate the following equation:
 
-\begin{equation}\protect\phantomsection\label{eq-8}{
+\begin{equation}\phantomsection\label{eq-8}{
 \text{Corr}(\text{Pop. dens}, \text{Ruggedness}) = \eta_0 + \eta_1 \sigma_i^r + \eta_2 x_i + \eta_3 x_i \sigma_i^r + \varepsilon_i,
 }\end{equation}
 
@@ -1120,8 +1103,8 @@ differences in terrain ruggedness within a country, we expect
 (\(\sigma^r_i = 0\)), then there is no benefit to moving to another part
 of the country in response to the threat of capture. In this case, the
 relationship between population concentration and slave exports in
-(\ref{eq-8}) is given by \(\eta_2\) only, and therefore we expect
-\(\eta_2 = 0\).
+(-Equation~\ref{eq-8}) is given by \(\eta_2\) only, and therefore we
+expect \(\eta_2 = 0\).
 
 The estimates of Equation~\ref{eq-8} are reported in column (1) of table
 6. As expected, the estimated coefficient for slave exports alone
@@ -1274,7 +1257,7 @@ in Africa.
 
 \subsection{References}\label{references}
 
-\protect\phantomsection\label{refs}
+\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
 \bibitem[\citeproctext]{ref-acemoglu_colonial_2001}
 Acemoglu, Daron, Simon Johnson, and James A. Robinson. 2001.
@@ -1338,7 +1321,6 @@ Sachs, Jeffrey, and Pia Malaney. 2002.
 of Malaria}.''} \emph{Nature} 415 (6872): 680--85.
 
 \end{CSLReferences}
-
 
 
 
