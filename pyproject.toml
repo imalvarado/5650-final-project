@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "arviz>=1.2.0",
+    "graphviz>=0.21",
     "ipykernel>=7.3.0",
     "matplotlib>=3.11.1",
     "pandas>=3.0.3",
