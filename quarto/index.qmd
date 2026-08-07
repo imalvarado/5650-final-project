@@ -5,31 +5,37 @@ authors:
   - name: Ian Alvarado
     affiliation: Georgetown University<br>Data Science and Analytics
     email: ima35@georetown.edu
-date: 7/15/2026
+date: 8/7/2026
 bibliography: Deconfounding_Project.bib
 csl: chicago-17-no-url.csl
 title-block-banner: "#041e42"
 title-block-banner-color: "#e3e3e5"
 abstract: |
-This project aims to identify the causal relationship between several variables and the survivability of a shark attack using data from the Global Shark Attack File (GSAF). In particular, this study investigates how the activity an individual chooses at the beach affects the odds of survivability if a shark attack were to occur. Initial exploratory data analysis reveals that the survivability of an attack varies dramatically between activities such as surfing, swimming, wading, etc. The overall fatality rate of shark attacks was found to be 15.6%. Fatality rates of specific activities vary dramatically, with the highest fatality rate being swimming (26.7%) and the lowest being stand-up paddle boarding (2.7%). However, this initial analysis ignores the potential impact of several confounding variables found within the GSAF dataset. Species is an important confounding variable, as a shark’s size and behavior are major determinants in whether an attack on a human results in death. Given an attack, both the species and the activity of the victim are likely influenced by the location and time of year of the attack. The three confounding variables we focus on for this study are location, season, and species. Further analysis reveals that the fatality rates of attacks given different activities vary between locations, species, and seasons. For example, the fatality rate of attacks on swimmers in Florida is 9.1% while the fatality rate of attacks on swimmers in New South Wales is 48.7%. This finding highlights the importance of considering how those variables confound the associational effect found between activity and survivability when examining the entire dataset. This study then proceeds to propose a method to model the interaction between activity, fatality, and the confounding variables using a probabilistic graphical model. Lastly, this paper attempts to implement this model using PyMC. This model could then be used to perform do-calculus to isolate the causal effect of activity on fatality.
+  This project aims to identify the causal relationship between several variables and the survivability of a shark attack using data from the Global Shark Attack File (GSAF). In particular, this study investigates how the activity an individual chooses at the beach affects the odds of survival in the event of a shark attack. Initial exploratory data analysis reveals that the survivability of an attack varies dramatically between activities such as surfing, swimming, wading, etc. The overall fatality rate of shark attacks was found to be 15.6%. Fatality rates of specific activities vary dramatically, with the highest fatality rate being swimming (26.7%) and the lowest being stand-up paddle boarding (2.7%). However, this initial analysis ignores the potential impact of several confounding variables found within the GSAF dataset. Species is an important confounding variable, as a shark’s size and behavior are major determinants in whether an attack on a human results in death. Given an attack, both the species and the activity of the victim are likely influenced by the location and time of year of the attack. The three confounding variables we focus on for this study are location, season, and species. Further analysis reveals that the fatality rates of attacks given different activities vary between locations, species, and seasons. For example, the fatality rate of attacks on swimmers in Florida is 9.1% while the fatality rate of attacks on swimmers in New South Wales is 48.7%. This finding highlights the importance of considering how those variables confound the associational effect found between activity and survivability when examining the entire dataset. This study then proceeds to propose a method to model the interaction between activity, fatality, and the confounding variables using a probabilistic graphical model. Lastly, this paper attempts to implement this model using PyMC. This model could then be used to perform do-calculus to isolate the causal effect of activity on fatality.
 ---
 
 ## Introduction {#sec-1}
 
-Ex citation: @gallup_economic_2001 and @sachs_economic_2002 claim that a disease-prone environment has substantial 
+The fear of shark attacks shapes the relationship many people have with the ocean, often keeping some of them away from it entirely. Due to their rarity, people’s perception and understanding of shark attacks are almost entirely shaped by stories and their depiction in media. This understanding has real-life consequences for recreation at the beach. @neff2015jaws introduces the idea of the “Jaws Effect” and argues that fictional depictions of shark attacks become the basis for explaining real-life events by political actors who influence policy. The way shark attacks are portrayed in media often suggests the intentionality of the shark, villifying the animal. More importantly for our analysis, shark attacks in media often reinforce the idea that encounters with sharks lead to fatal outcomes. Our analysis in later sections will push back against this idea, instead showing the majority of shark attacks (let alone shark encounters) are not fatal. Nonetheless, the portrayal of sharks as inherently evil and lethal animals shapes policy and may be one of the reasons nearly 100 million sharks are killed by humans each year, as detailed by @worm2013global. Data analysis can unearth findings that create a more accurate understanding of sharks and their interactions with humans. Such an understanding could then be used by policymakers to keep humans and sharks safer through education, warnings, and even physical solutions such as shark nets and drone spotters.
 
-- Intro to the topic
-- Do some lit review
-- Explain data source and concerns with data source
-- Focus on activity (people constrained by geography/season, have the most control over this one)
+There is existing literature conducting a variety of analyses on the Global Shark Attack File (GSAF), including some that focus on the fatality rates of shark attacks. @ricci2016shark examines the type of injuries that arise from shark attacks and even goes so far as to investigate which characteristics of an attack lead to severe injuries and death. One such attack characteristic is the activity of the victim at the time of the attack (identifying swimming as the most lethal activity). @de2021factors go a step further, looking at shark attacks in Brazil. They investigate other factors such as region, demographic information, and even temporal variables such as time of year. Such studies are useful. However, they do not go beyond an associational analysis of the factors contributing to fatal shark attacks. This paper aims to go beyond associational analysis and conduct a causal analysis of the variables that influence the survivability of shark attacks. Ultimately discovering which factors truly cause shark attacks to be deadly.
+
+This paper primarily focuses on one shark attack characteristic, the activity of the victim at the time of attack. While @ricci2016shark and @de2021factors both identify activity as a contributing factor to shark attack survivability, neither quantifies the causal change in survivability by choosing to partake in one activity over others. Activity is one of the only characteristics of an attack listed in the GSAF that is truly a choice of the victim, and is therefore one of the variables a potential victim would have the most control over. Enabling people with accurate data relating to activity and shark attack survivability would allow them to make the most informed choice while having a nearly complete understanding of the risks associated with their chosen activity.
+
 
 ## Exploratory data analysis {#sec-2}
+
+### Data preparation
 
 - Explain which data is kept for analysis
   - which activities are included and why
   - which observations were excluded and why
 - Compare data before and after applying these filters (counts, overall rates, etc.)
 - Plots for Fatality rates (activity, location, species)
+
+### Data visualization
+
+- pics here
 
 ![Schematic of the average uphill slope calculation used to measure ruggedness](images/fig-1.svg){#fig-1 width="60%"}
 
