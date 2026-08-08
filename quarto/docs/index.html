@@ -189,9 +189,11 @@ window.Quarto = {
   <li><a href="#exploring-relationships-between-confounding-variables-and-activity" id="toc-exploring-relationships-between-confounding-variables-and-activity" class="nav-link" data-scroll-target="#exploring-relationships-between-confounding-variables-and-activity"><span class="header-section-number">2.3</span> Exploring relationships between confounding variables and activity</a></li>
   </ul></li>
   <li><a href="#sec-3" id="toc-sec-3" class="nav-link" data-scroll-target="#sec-3"><span class="header-section-number">3</span> Moving toward causality: how confounders influence treatment effect</a></li>
-  <li><a href="#sec-4" id="toc-sec-4" class="nav-link" data-scroll-target="#sec-4"><span class="header-section-number">4</span> Modeling with a probablistic graphical model</a></li>
-  <li><a href="#sec-5" id="toc-sec-5" class="nav-link" data-scroll-target="#sec-5"><span class="header-section-number">5</span> Conclusions and future work</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#sec-4" id="toc-sec-4" class="nav-link" data-scroll-target="#sec-4"><span class="header-section-number">4</span> Modeling with a probablistic graphical model</a>
+  <ul class="collapse">
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">4.1</span> Next steps</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
   </ul>
 </nav>
 </div>
@@ -355,30 +357,41 @@ Figure&nbsp;8: Heat map comparing species and state in which attack took place
 </section>
 <section id="sec-3" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="sec-3"><span class="header-section-number">3</span> Moving toward causality: how confounders influence treatment effect</h2>
+<p>For the purposes of this study, we would like to investigate the effect confounding variables may have on the associational correlation we observed between activity and fatality rate. The confounding effect of location is made clear in Figure 9 below.</p>
 <div id="fig-9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/nsw_vs_other.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: Comparing fatality rates by activity in New South Wales vs all other states"><img src="images/nsw_vs_other.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="images/nsw_vs_other.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: Comparing fatality rates by activity in New South Wales vs all other states"><img src="images/nsw_vs_other.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: Comparing fatality rates by activity in New South Wales vs all other states
 </figcaption>
 </figure>
 </div>
+<p>The overall fatality rate in New South Wales is 25.8%, while the overall fatality rate across all other states in our analysis is 14.3%. Fatality rates across activities are generally higher across the board in New South Wales. The fatality rate of attacks on swimmers in New South Wales is more than twice that of all other states when combined. More importantly, the relative danger of each activity compared to other activities is different in New South Wales. This is most obvious when looking at the fatality of wading. Attacks on people in shallow water in New South Wales are dramatically higher than other activities except for swimming. This is very different from the rest of the population as a whole, where wading tends to have a lower fatality rate than the majority of other activities.</p>
+<p>These results show that activity alone does not adequately capture the risk of death when attacked by a shark, and the location of the attack is indeed a confounding variable that must be accounted for when trying to measure the causal effect of activity on shark attack survivability</p>
 </section>
 <section id="sec-4" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-4"><span class="header-section-number">4</span> Modeling with a probablistic graphical model</h2>
-<ul>
-<li>show what you have of a model in PyMC</li>
-<li>explain what still needs to be done along with obstacles you are facing</li>
-</ul>
+<div id="fig-10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/dag.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;10: Probablistic graphical model depicting potential data generating process"><img src="images/dag.png" class="img-fluid figure-img" style="width:40.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Probablistic graphical model depicting potential data generating process
+</figcaption>
+</figure>
+</div>
+<p>The above model depicts a proposed data generating process with each of the variables we have covered so far in our analysis. The activity at the time of the attack is considered the treatment effect, while whether the attack resulted in a fatality is our outcome of interest. The purpose of this model is to give a clear idea of which backdoor paths must be closed to isolate the effect of activity on fatality.</p>
+<section id="next-steps" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="next-steps"><span class="header-section-number">4.1</span> Next steps</h3>
+<p><strong>Test Validity of PGM:</strong> This PGM implies multiple conditional independencies. * activity independent of species when conditioned on season and state * fatality independent of state when conditioned on activity, season, and species * state independent of season These conditional independencies should be tested in order to determine if this PGM is invalid as proposed</p>
+<p><strong>Model PGM in PyMC:</strong> Once those conditional independencies have been tested, a model of this data generating process should be created in PyMC to enable the ability to perform do-calculus to isolate the effect of activity. I tried (with limited success) to implement a discrete choice and random utility model in PyMC to model an individuals choice of activity. When fully implemented, such a model will enable further analysis to determine the causal effect of activity on fatality.</p>
 </section>
-<section id="sec-5" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="sec-5"><span class="header-section-number">5</span> Conclusions and future work</h2>
-<p>write stuff here</p>
 </section>
-<section id="references" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-midway2019trends" class="csl-entry" role="listitem">
 Midway, Stephen R, Tyler Wagner, and George H Burgess. 2019. <span>“Trends in Global Shark Attacks.”</span> <em>PloS One</em> 14 (2): e0211049.
@@ -821,7 +834,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

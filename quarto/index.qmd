@@ -107,18 +107,29 @@ Figure 8 demonstrates the differences in distribution of shark species across re
 
 ## Moving toward causality: how confounders influence treatment effect {#sec-3}
 
-![Comparing fatality rates by activity in New South Wales vs all other states](images/nsw_vs_other.png){#fig-9 width="60%"}
+For the purposes of this study, we would like to investigate the effect confounding variables may have on the associational correlation we observed between activity and fatality rate. The confounding effect of location is made clear in Figure 9 below.
 
+![Comparing fatality rates by activity in New South Wales vs all other states](images/nsw_vs_other.png){#fig-9 width="100%"}
 
+The overall fatality rate in New South Wales is 25.8%, while the overall fatality rate across all other states in our analysis is 14.3%. Fatality rates across activities are generally higher across the board in New South Wales. The fatality rate of attacks on swimmers in New South Wales is more than twice that of all other states when combined. More importantly, the relative danger of each activity compared to other activities is different in New South Wales. This is most obvious when looking at the fatality of wading. Attacks on people in shallow water in New South Wales are dramatically higher than other activities except for swimming. This is very different from the rest of the population as a whole, where wading tends to have a lower fatality rate than the majority of other activities.
+
+These results show that activity alone does not adequately capture the risk of death when attacked by a shark, and the location of the attack is indeed a confounding variable that must be accounted for when trying to measure the causal effect of activity on shark attack survivability
 
 ## Modeling with a probablistic graphical model {#sec-4}
 
-- show what you have of a model in PyMC
-- explain what still needs to be done along with obstacles you are facing
+![Probablistic graphical model depicting potential data generating process](images/dag.png){#fig-10 width="40%"}
 
-## Conclusions and future work {#sec-5}
+The above model depicts a proposed data generating process with each of the variables we have covered so far in our analysis. The activity at the time of the attack is considered the treatment effect, while whether the attack resulted in a fatality is our outcome of interest. The purpose of this model is to give a clear idea of which backdoor paths must be closed to isolate the effect of activity on fatality.
 
-write stuff here
+### Next steps
+
+**Test Validity of PGM:** This PGM implies multiple conditional independencies.
+* activity independent of species when conditioned on season and state
+* fatality independent of state when conditioned on activity, season, and species
+* state independent of season
+These conditional independencies should be tested in order to determine if this PGM is invalid as proposed
+
+**Model PGM in PyMC:** Once those conditional independencies have been tested, a model of this data generating process should be created in PyMC to enable the ability to perform do-calculus to isolate the effect of activity. I tried (with limited success) to implement a discrete choice and random utility model in PyMC to model an individuals choice of activity. When fully implemented, such a model will enable further analysis to determine the causal effect of activity on fatality.
 
 ## References
 
