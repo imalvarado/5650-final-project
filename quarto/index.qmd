@@ -105,10 +105,11 @@ The heatmap in Figure 7 shows fluctuations in attacks by different species acros
 
 Figure 8 demonstrates the differences in distribution of shark species across regions (states). California stands out for having nearly every single attack be due to a great white shark. Other states, such as Florida, see a wider variety of shark species involved in attacks that are typically associated with lower death rates. This helps explain the disparity in fatality rates across states shown in section 2.2.4. This plot shows a strong relationship between state and the shark species present during attacks.
 
-## Exploring interactions between activity and counfounders {#sec-3}
+## Moving toward causality: how confounders influence treatment effect {#sec-3}
 
-- include visaul from daggity
-- explain backdoor paths and how to close
+![Comparing fatality rates by activity in New South Wales vs all other states](images/nsw_vs_other.png){#fig-9 width="60%"}
+
+
 
 ## Modeling with a probablistic graphical model {#sec-4}
 

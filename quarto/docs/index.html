@@ -188,7 +188,7 @@ window.Quarto = {
   <li><a href="#fatality-rates-by-different-attributes" id="toc-fatality-rates-by-different-attributes" class="nav-link" data-scroll-target="#fatality-rates-by-different-attributes"><span class="header-section-number">2.2</span> Fatality rates by different attributes</a></li>
   <li><a href="#exploring-relationships-between-confounding-variables-and-activity" id="toc-exploring-relationships-between-confounding-variables-and-activity" class="nav-link" data-scroll-target="#exploring-relationships-between-confounding-variables-and-activity"><span class="header-section-number">2.3</span> Exploring relationships between confounding variables and activity</a></li>
   </ul></li>
-  <li><a href="#sec-3" id="toc-sec-3" class="nav-link" data-scroll-target="#sec-3"><span class="header-section-number">3</span> Exploring interactions between activity and counfounders</a></li>
+  <li><a href="#sec-3" id="toc-sec-3" class="nav-link" data-scroll-target="#sec-3"><span class="header-section-number">3</span> Moving toward causality: how confounders influence treatment effect</a></li>
   <li><a href="#sec-4" id="toc-sec-4" class="nav-link" data-scroll-target="#sec-4"><span class="header-section-number">4</span> Modeling with a probablistic graphical model</a></li>
   <li><a href="#sec-5" id="toc-sec-5" class="nav-link" data-scroll-target="#sec-5"><span class="header-section-number">5</span> Conclusions and future work</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
@@ -354,11 +354,17 @@ Figure&nbsp;8: Heat map comparing species and state in which attack took place
 </section>
 </section>
 <section id="sec-3" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sec-3"><span class="header-section-number">3</span> Exploring interactions between activity and counfounders</h2>
-<ul>
-<li>include visaul from daggity</li>
-<li>explain backdoor paths and how to close</li>
-</ul>
+<h2 data-number="3" class="anchored" data-anchor-id="sec-3"><span class="header-section-number">3</span> Moving toward causality: how confounders influence treatment effect</h2>
+<div id="fig-9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nsw_vs_other.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: Comparing fatality rates by activity in New South Wales vs all other states"><img src="images/nsw_vs_other.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Comparing fatality rates by activity in New South Wales vs all other states
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="sec-4" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-4"><span class="header-section-number">4</span> Modeling with a probablistic graphical model</h2>
@@ -815,7 +821,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
